@@ -56,6 +56,10 @@ Resposta esperada: `200 OK` com `"email sent successfully"` ou `500` em caso de 
 ```
 ./mvnw test
 ```
+- Cobertura:
+  - Controller: `/api/v1/email/send` com MockMvc (200 e 500).
+  - Service: delegação para o gateway.
+  - SES sender: constrói `SendEmailRequest` e encapsula `AmazonServiceException` em `EmailServiceException`.
 
 ## Notas e próximos passos
 - Substituir o remetente hardcoded em `sesEmailSender` para usar `ses.fromEmail` do properties/env.
